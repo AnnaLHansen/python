@@ -100,10 +100,99 @@ element har typen 'tuples'. De enkelte elementer inde i en tuple er str, int, el
 float, og en tuple kan sagtens indeholde flere forskellige element typer.
 Hvert element inde i en tuple kan tilgåes via elementets index. Lidt ligesom i en 
 string, bortset fra at hele streng elementet i en tuple er et index.
+Man kan også lægge to tuples sammen med +
+
+Tuples er immutable hvilket er en vigtig egenskab. Man kan kun manipulere en 
+tupel ved at assigne sin tupel til en ny variabel.
+En tupel kan også indeholde nestede tupels. Man kan tilgå de nestede tupels med
+firkantede brackets (ligesom i R). 
+
+List er på mange måde ligesom tupels, bortset fra at de er mutabels. 
+Slicing foregår på samme måde som tuples.
+For lister kan man også tilføje elementer til en allerede eksisterende liste med 
++ operatoren.
+Man kan ligesom med tupels, godt have lister med nestede lister i.
+For at tilføje en nested liste til en liste kan man bruge .append
+metoden.
+
+Der findes også en metode som spliter en string til en liste. .split
+hvis man ikke giver metoden et split-argument, tager den 
+pr default mellemrum som split-argument.
+
+Når man har to variable som henviser til samme liste, vil man ændre 
+begge variable når man ændrer listen. 
+
 
 """
 tupel_test = (1, 2, 3.0, "hej")
 print(tupel_test)
 print(type(tupel_test))
 print(tupel_test[3])
+tupel_test2 = tupel_test + ("Anna", 3, 1)
+# tupel_test2.extend(("pop"))    virker ikke fordi immutable
+# tupel_test2[0] = 2    virker heller ikke fordi immutable
+print(tupel_test2)
+
+liste_test = [1, 2, 3.0, "hej"]
+print(liste_test)
+print(type(liste_test))
+print(liste_test[3])
+liste_test.extend(["pop"])
+liste_test.extend("pop")
+liste_test.append(["popper", 10])
+print(liste_test)
+print(liste_test[8])
+liste_test[0] = "heheheh"
+print(liste_test)
+del(liste_test[0]) # Fjerner element i liste
+print(liste_test)
+B=[1,2,[3,'a'],[4,'b']]
+print(B[3])
+
+"""
+Dictonaries i Python
+Både dictonaries og sets er collections i python.
+En dictonary minder om en liste, men indeholder 
+keys og values.
+
+En dictonary kan assignes til en variabel og herfra kan man referere til
+værdien i dictonary ved at henvise til nøglen.
+
+"""
+opslag = {"key1": "hej", "key2": (1,2)}
+print(opslag)
+print(opslag["key1"])
+print("key1" in opslag)
+print("key3" in opslag)
+print(opslag.keys())
+print(opslag.values())
+
+
+"""
+Sets i Python
+Både dictonaries og sets er collections i python.
+
+sets har kun unikke elementer. 
+Når man definerer et set, vil duplikater forsvinde ved dannelsen af settet.
+Et set kan derfor pr definition ikke indeholde dupletter.
+
+Man kan også konvertere en liste til et set med funktionen set()
+
+ligesom med dictonaries kan man også bruge "in" operatoren for at finde ud af
+om en værdi findes i et set.
+
+intersection af to sets kan findes med operatoren &.
+
+"""
+
+set1 = {"hej", "hej", "heeej", "hallo"}
+print(set1)
+set2 ={"nej", "no", "hallo"}
+print(set2)
+set3 = set1 & set2
+print(set3)
+
+
+
+
 
