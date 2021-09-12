@@ -193,6 +193,175 @@ set3 = set1 & set2
 print(set3)
 
 
+"""
+Conditions and branching i python
+Man kan sammenligne værdier med følgende:
+
+==
+!=
+<
+>
+=>
+=<
+
+Man kan også sammenligne strings med hinanden.
+Ud over de almindelige større end og lig med operatorer
+er der også indbyggede funktioner i python som 
+"or", "not", "and"
+
+"""
+a=5
+print(a==6)
+
+if(a>5):
+  print("a er stoerre end 5")
+elif(a==5):
+  print("a er lig med 5")
+else:
+  print("a er ikke stoerre end 5")
+print("nu er mit if statement færdigt")
+
+print(not(False))
+print(False or True)
+
+if(a>5 or a<5):
+  print("a er ikke lige med 5")
+elif(a==5):
+  print("a er lig med 5")
+
+"""
+Loops i python
+I loops kan man bruge range() funktionen. 
+While loops minder om for-loops, men bliver kun kørt
+så længe betingelsen er opfyldt.
+
+"""
+firkant = ["1", "2", "3", "4", "5"]
+print(firkant)
+
+for i in firkant:
+  print(i)
+
+for i in range(0,5):
+  firkant[i] = "hej"
+
+print(firkant)
+
+for i,firkant in enumerate(firkant):
+  print(i)
+  print(firkant)
+
+print(firkant)
+
+
+firkant = ["green", "green", "yellow"]
+i = 0
+while(firkant[i]=='green'):
+  print("uhhhhh")
+  i = i+1
 
 
 
+"""
+Funktioner i python
+Der er både indbyggede funtkioner i python og i forsxkellige python 
+pakker, men man kan også bygge sine egne pakker.
+
+Et eksempel på en indbygget funktion er funktionen 'len()'
+
+Sorted() er et eksempel på en funktion som outputter en liste med sorteret input.
+Det sortede input kan blive skrevet til en ny variabel, men i sig selv ændrer
+den ikke ved den oprindelige liste. 
+Hvis man vil ændre den oprindelige liste kan man bruge metoden .sort i stedet.
+
+En funktion i python bliver defineret således:
+
+def funktionensnavn(inputvariabel):
+  selve funktionens indhold
+  return(det som skal returneres)
+
+
+Man kan tilgå funktionsdokumentationen med help(add1)
+For at komme ud af dokumentationen igen trykker med q
+
+Variable som bliver defineret uden for en funktion ligger i 
+'global scope'. Alle variable som ligger i 'global scope' er globale variable.
+Det er kun de returnerede værdier som bliver returneret til det globale scope.
+De variable som bliver defineret inde i en funktion men som ikke returneres, 
+eksisterer kun der. 
+Hvis en variabel ikke bliver defineret inde i funktion vil python automatisk
+tjekke det globale scope og bruge funktionen der hvis den findes.
+Man kan inde i en funktion henvise til en global variable med 
+
+'global variablen' inde i selve funktionen. Her tager man bevidst den globale 
+variabel.
+
+"""
+
+print(len([1,2,3,4]))
+print(sum([1,2,3]))
+print(sorted([2, 1, 5,4]))
+
+a = [2, 1, 5,4]
+print(a)
+a.sort()
+print(a)
+
+
+def add1(a,b):
+  """
+  Dette er funktionsdokumentationen til denne 
+  helt igennem fantastiske funktion som lægger 1 oveni 
+  input.
+  """
+  c = a + b
+  return c
+
+print(add1(2, 4))
+
+"""
+Exception Handling i Python
+
+Exception handling gør en funktion i stand til at håndtere at
+den modtager et forkert input.
+Det kan f.eks. være at input er af en forkert type. 
+
+Exeption handling kan også være at tilføje nyttige print statements undervejs
+for at gøre opmærksom på hvad der er gået galt og dermed gøre debugging nemmere.
+"""
+
+"""
+Objects and classes i python
+Hver datatype i python er et object som har en type.
+
+Når man laver en liste i python laver man et liste object. 
+Som man med type() kan se typen.
+Metoder kan anvendes på objektet og gør noget bestemt ved objektet.
+
+(Er det rigtigt at en metode opfører sig forskelligt afhængig af typen??)
+
+Man kan også lave dine egne type (klasser)
+
+Init funktionen er en speciel funktion i python, som fortæller python
+at man er i gang med at lave en ny klasse.
+
+Methods hører til en class, og er metoder som kan bruges på objekter med 
+den specifikke type. 
+
+"""
+
+class Cirkel(object):
+  
+  def __init__(self, radius, color):
+    self.radius =  radius;
+    self.color = color;
+  
+  def add_radius(self, r):
+    self.radius =  self.radiues + r
+
+
+RedCirkel = Cirkel(10, "red")
+RedCirkel.color = "blue"
+RedCirkel.add_radius = 4
+
+print(dir(RedCirkel))
