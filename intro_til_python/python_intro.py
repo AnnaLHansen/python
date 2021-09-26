@@ -365,3 +365,208 @@ RedCirkel.color = "blue"
 RedCirkel.add_radius = 4
 
 print(dir(RedCirkel))
+
+"""
+Læs filer med Python
+med 'open' function. 
+Funktionen kan kaldes med bl.a. "r" for reading, og "w" for writing.
+
+med metoden 'name' kan man trække alle attributterne ud af filen.
+og herefter bruge 'close' til at lukke filen igen, så man ikke længere læser fra den.
+
+Med open og close laver man en connection til filen man enten gerne vil læse eller
+skrive til. 
+Med metoden read, kan man indlæse filen med den åbne connection. 
+
+Når man er færdig med at bruge forbindelsen, kan man lukke den med .close()
+
+Med .readlines metoden kan man læse specifikke elementer fra den åbne fil.
+"""
+# file1 = open("(home1/W22009/test.json", "r") 
+# file1.name
+# file1.close()
+
+file1=open("/home1/W22009/python/testfil.txt", "r")
+file2=file1.read()
+
+file3=file1.readlines(2)
+file4=file1.readlines(0)
+print(file2)
+print(file3)
+print(file4)
+file1.close()
+
+"""
+Skriv til filer med Python
+med 'open' function.
+Med metoden .write til en åben fil kan man tilføje indhold til filen.
+
+"""
+file1=open("/home1/W22009/python/testfil.txt", "w")
+file1.write("This is line A\n")
+file1.write("hehehe det her er linje 2")
+file1.close()
+
+
+"""
+Loading data with Pandas i Python
+I python kan man bruge forskellige biblioteker /libraries.
+pandas indeholder således en funktion til at læse csv filer.
+
+Med import kan man importerer et library. 'as' under import giver muligheden for 
+at importerer pandas library under et valgfrit navn. Eksemplet herunder 
+importerer det som "banana".
+
+pandas pakken indeholder også en head metode, så man kan se toppen af sit dataframe.
+
+.DataFrame metoden fungerer ligesom data.frame() i R. Den konverterer input til et
+dataframe.
+
+dataframe[['attribut']] tager den valgte attritbut ud af det valgte dataframe.
+Hvis det assignes til et nyt objekt vil dette stadig være en dataframe blot med
+en enkelt variabel.
+
+"""
+# import pandas as banana
+# 
+# csv_path = "/home1/W22009/python/testfil.txt"
+# dataframe = banana.read_csv(csv_path)
+# dataframe.head()
+
+# banana.DataFrame(tuppel)
+# ny_dataframe = dataframe[['artist']] 
+
+"""
+Working with and saving data with pandas
+df['Released'].unique()
+df['Released']>=1980
+df2=df[df['Released'] >=1980]
+df2.to_csv('new_songs.csv')
+"""
+
+"""
+Numpy in python
+Numpy arrays minder om en liste.
+
+Numpy arrays med en dimenssion er vektorer. Numpy pakken
+indeholder en masse forskellige metoder til at foretage hurtigt
+vektor regning.
+
+Numpy arrays er hurtigere end almindelig python
+kode. De universelle funktioner som eks. mean
+fungerer også på et numpy array. 
+"""
+
+import numpy as np
+a=np.array([0,1,2,3,4])
+print(type(a))
+print(a.size)
+print(a.ndim)
+print(a.shape)
+
+# Beregninger i numpy er hurtigere end base-python
+# Herunder er et eksempel på hvordan man kan lægge 
+# de to vektorer sammen med numpy notation.
+u=np.array([1,0])
+v=np.array([0,1])
+z=u+v
+# z:array([1,1])
+
+"""
+Numpy arrays med to dimenssioner
+
+arrays med to dimenssioner virker på sammen 
+måde som en matix og kan lægges sammen 
+på samme måde.
+"""
+
+a=[[11,12,13], [21,22,23], [31,32,33]]
+a.shape # (3,3)
+a.ndim # 2
+a.size # 9
+a[0,0] # 11
+
+
+"""
+API (Apllication program interface)
+Hvad er API's, API libraries, REST API
+
+Et API lader to componenter snakke med hinanden.
+Man skal bare vide et API's input og output.
+
+Hos REST API'er hedder ens eget program 'client'. Klienten 
+sender requests til 'resource' (også kaldet end point) og
+sender et svar tilbage til klienten igen.
+
+Resource kan eksempelvis være en webservice.
+Data som gives frem og tilbage vil typisk være en json fil.
+
+Data kan også være en lydfil. Et eksempel kan være klienten som 
+sender en lydfil til API'et. API'et returnerer den transkriberede tekst.
+Den transkriberede fil kan herefter blive sendt til et andet API
+som oversætter teksten til et andet sprog.
+
+For at få adgang til et API skal man give API'et en key (Er nogle
+APIer helt åbne?)
+
+
+"""
+
+# import requests
+# url='https://www.ibm.com/'
+# r=requests.get(url)
+# 
+# r.status_code # 200 hvis ok
+# r.header 
+# r.encoding
+# 
+# 
+# url_get = 'http://httpbin.org/get'
+# payload={"name": "Joseph", "ID": "123"}
+# r=requests.get(url_get, params=payload)
+# r.url # Pinter urlen
+# r.json # Viser json 
+# 
+# url_post = 'http://httpbin.org/post'
+# payload={"name": "Joseph", "ID": "123"}
+# r_post = requests.post(url_post, data=payload)
+
+"""
+HTML for WEB scraping
+For at kunne udtrække data fra en hjemmeside skal man forstå
+opbygningen af en html. 
+
+1) import request og BeautifulSoup pakkerne.
+2) request.get kan hente html objektet
+3) Med beautifulsoup funktionen kan man lave et beautifulsoup
+objekt, som man kan bruge til at trække de ønskede elementer ud,
+4) Eksempelvis med soup.find_all("a") Finder alle instancer med HTML tagget
+"<a>"
+
+"""
+
+# from bs4 import BeautifulSoup
+# html= "indsæt her en html kode"
+# 
+# soup = BeautifulSoup(html, 'html5lib')
+# tag_object = soup.h3
+# # Man kan her navigerer rundt i html træet.
+# 
+# table = BeautifulSoup(html, 'html5lib')
+# table_row=table.find.all(name='tr')
+# table_row[0] # Første række
+
+
+"""
+Working with different file formats in Python
+CSV, XML, JSON
+
+Pandas pakken gør det nemt at indlæse forskellige filtyper
+pd.read_csv 
+json.load
+
+XML filer er lidt mere komplicerede fordi der ikke findes en metode
+til at indlæse xml filer med pandas
+"""
+
+
